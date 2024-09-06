@@ -1,4 +1,4 @@
-# DebiAI Python module
+# Algo Provider Python module
 [![Online documentation](https://img.shields.io/static/v1?label=&message=Online documentation&color=0077de)](https://debiai.irt-systemx.fr/dataInsertion/pythonModule/quickStart.html)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![PyPI](https://badge.fury.io/py/debiai.svg)](https://badge.fury.io/py/debiai)
