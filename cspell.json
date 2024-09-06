@@ -1,0 +1,29 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": [
+    "dataframe",
+    "DebiAI",
+    "imshow",
+    "ipynb",
+    "numpy",
+    "pypi",
+    "pytest",
+    "systemx",
+    "__pycache__"
+  ],
+  "flagWords": [],
+  "ignorePaths": [
+    "*.svg",
+    "*.json",
+    "*.png",
+    "*.yaml",
+    "*.log",
+    "*.ipynb",
+    "*.sh",
+    ".vscode/*",
+    "requirements.txt",
+    "__pycache__/",
+    "htmlcov/"
+  ]
+}
