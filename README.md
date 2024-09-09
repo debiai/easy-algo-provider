@@ -10,4 +10,4 @@
 [![Code style: flake8](https://img.shields.io/badge/code%20style-flake8-1c4a6c.svg)](https://flake8.pycqa.org/en/latest/)
 
 -->
-The Algo-Provider Python module is an interface that you can use directly it in your Python project workflow to integrate algorithms to a given application (such as DebiAI).
+The Algo-Provider Python module is an interface that you can use directly in your Python project workflow to integrate algorithms to a given application (such as DebiAI).
