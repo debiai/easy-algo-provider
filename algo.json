@@ -1,0 +1,26 @@
+{
+    "id": "moving_average",
+    "name": "Moving Average",
+    "description": "Defines the logic of the algorithm",
+    "inputs": [
+        {
+            "name": "data",
+            "description": "List of numbers to calculate the moving average on.",
+            "type": "list",
+            "default": null
+        },
+        {
+            "name": "periods",
+            "description": "Number of periods for the moving average.",
+            "type": "int",
+            "default": 3
+        }
+    ],
+    "outputs": [
+        {
+            "name": "result",
+            "description": "The result of moving_average.",
+            "type": "array"
+        }
+    ]
+}
