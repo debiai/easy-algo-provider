@@ -25,7 +25,8 @@ def extract_algorithm_metadata(function):
     # Extraction of the Args
     args_descriptions = {}
     if docstring:
-        args_section = re.search(r"Args:\s*(.*?)(Returns:|\Z)", docstring, re.DOTALL)
+        args_section = re.search(r"Args:\s*(.*?)(Returns:|\Z)",
+                                 docstring, re.DOTALL)
         if args_section:
             args_text = args_section.group(1).strip()
             # Split each argument and description based on indentation
@@ -59,10 +60,11 @@ def extract_algorithm_metadata(function):
         # Input
         input_metadata = {
             "name": param_name,
-            "description": param_data.get("description", ""),  # Empty if not found
+            "description": param_data.get("description", ""),
             "type": param_type,
             "default": (
-                param.default if param.default != inspect.Parameter.empty else None
+                param.default if param.default != inspect.Parameter.empty
+                else None
             ),
         }
         algorithm_metadata["inputs"].append(input_metadata)

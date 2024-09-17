@@ -6,8 +6,8 @@ def add_floats(number1: float, number2: float) -> float:
     Adds two numbers together and returns the result.
 
     Args:
-        number1 (float): The first number to add. Can be any real number (integer or float).
-        number2 (float): The second number to add. Can be any real number (integer or float).
+        number1 (float): The first number to add.(integer or float).
+        number2 (float): The second number to add.(integer or float).
 
     Returns:
         float: The result of the addition of number1 and number2.
