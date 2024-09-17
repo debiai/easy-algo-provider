@@ -1,6 +1,7 @@
 import inspect
 import json
 import re
+from algo_provider.algorithms.my_algorithms import add_floats
 
 
 def extract_algorithm_metadata(function):
@@ -104,7 +105,8 @@ def moving_average(data: list, periods: int = 3) -> list:
     ]
 
 
-metadata = extract_algorithm_metadata(moving_average)
+# metadata = extract_algorithm_metadata(moving_average)
+metadata = extract_algorithm_metadata(add_floats)
 
 file_path = "algo.json"
 
