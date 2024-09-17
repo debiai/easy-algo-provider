@@ -11,7 +11,8 @@
     "pytest",
     "systemx",
     "__pycache__",
-    "jsonify"
+    "jsonify",
+    "connexion"
   ],
   "flagWords": [],
   "ignorePaths": [

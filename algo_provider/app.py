@@ -4,8 +4,6 @@ from flask_cors import CORS
 import requests
 from algo_provider.algo_provider_API import AlgoProviderAPI
 
-# from init import init
-# from utils.utils import get_app_version
 
 PORT = 3020
 
@@ -21,7 +19,7 @@ algo_api = AlgoProviderAPI("http://localhost:3020/algorithms")
 def get_algorithms():
     """Endpoint to retrieve a list of algorithms."""
     try:
-        algorithms = algo_api.get_algorithms()  # Appel à ta méthode custom
+        algorithms = algo_api.get_algorithms()
         return jsonify(algorithms), 200
     except requests.exceptions.RequestException as e:
         return jsonify({"error": str(e)}), 500
