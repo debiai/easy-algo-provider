@@ -1,0 +1,6 @@
+# Ignore tested algorithm
+algo_provider/algo.json
+
+# Build and packaging
+*.egg-info/
+algo_provider/__pycache__/

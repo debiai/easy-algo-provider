@@ -1,26 +1,26 @@
 {
-    "id": "moving_average",
-    "name": "Moving Average",
-    "description": "Defines the logic of the algorithm",
+    "id": "add_floats",
+    "name": "Add Floats",
+    "description": "Adds two numbers together and returns the result.",
     "inputs": [
         {
-            "name": "data",
-            "description": "List of numbers to calculate the moving average on.",
-            "type": "list",
+            "name": "number1",
+            "description": "The first number to add. Can be any real number (integer or float).",
+            "type": "float",
             "default": null
         },
         {
-            "name": "periods",
-            "description": "Number of periods for the moving average.",
-            "type": "int",
-            "default": 3
+            "name": "number2",
+            "description": "The second number to add. Can be any real number (integer or float).",
+            "type": "float",
+            "default": null
         }
     ],
     "outputs": [
         {
             "name": "result",
-            "description": "The result of moving_average.",
-            "type": "array"
+            "description": "The result of add_floats.",
+            "type": "number"
         }
     ]
 }
