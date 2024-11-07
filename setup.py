@@ -16,7 +16,8 @@ setup(
     packages=find_packages(),
     python_requires=">=3.7",
     install_requires=[
-        # TODO
+        "fastapi==0.115.4",
+        "uvicorn==0.32.0",
     ],
     entry_points={},
 )
