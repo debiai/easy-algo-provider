@@ -8,12 +8,14 @@ from datetime import date
 class DataValueInformation(BaseModel):
     name: str = Field(
         ...,
-        description="The name of the input or output, must be unique, will be used to identify the input or output",
+        description="The name of the input or output, must be unique,\
+will be used to identify the input or output",
         example="my_data_01",
     )
     type: str = Field(
         ...,
-        description="The type of the input or output, only string, number, boolean and array are supported",
+        description="The type of the input or output, only string, number,\
+boolean and array are supported",
         example="string",
         enum=["string", "number", "boolean", "array"],
     )
@@ -65,7 +67,8 @@ class ValueInformationArray(DataValueInformation):
     type: str = Field("array", Literal=True, example="array", enum=["array"])
     arrayType: str = Field(
         ...,
-        description="Specify type of the array, only string, number and boolean supported",
+        description="Specify type of the array, only string, number and\
+boolean supported",
         example="string",
         enum=["string", "number", "boolean", "dict", "array"],
     )
@@ -88,7 +91,8 @@ InputOutputType = Union[
 class Algorithm(BaseModel):
     id: str = Field(
         ...,
-        description="The id of the algorithm, must be unique, will be used to identify the algorithm",
+        description="The id of the algorithm, must be unique, will be used\
+to identify the algorithm",
         example="my-algorithm-01",
     )
     name: Optional[str] = Field(
@@ -112,7 +116,7 @@ class Algorithm(BaseModel):
     )
     updateDate: Optional[date] = Field(
         None,
-        description="The last update date of the algorithm, ISO 8601 format, YYYY-MM-DD",
+        description="The last algorithm update date, ISO 8601 format, YYYY-MM-DD",
         example="2023-03-20",
     )
     version: str = Field(

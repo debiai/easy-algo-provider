@@ -14,7 +14,8 @@
     "pypi",
     "pytest",
     "systemx",
-    "uvicorn"
+    "uvicorn",
+    "venv"
   ],
   "flagWords": [],
   "ignorePaths": [
@@ -28,6 +29,7 @@
     ".vscode/*",
     "requirements.txt",
     "__pycache__/",
-    "htmlcov/"
+    "htmlcov/",
+    "venv"
   ]
 }
