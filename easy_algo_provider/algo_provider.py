@@ -10,8 +10,6 @@ class AlgoProvider:
 
     def add_algo(self, func: Callable):
         algo = parse_algorithm(func)
-        print(f"Adding algorithm '{algo.id}'")
-        print(algo)
         self.algorithms[algo.id] = algo
 
     def get_algorithms(self) -> List[Algorithm]:

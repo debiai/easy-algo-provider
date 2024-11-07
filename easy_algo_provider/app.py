@@ -22,7 +22,7 @@ def start_api_server(provider, host, port):
         allow_headers=["*"],
     )
 
-    @app.get("/algorithms", response_model=list)
+    @app.get("/algorithms", response_model=List[Algorithm])
     def get_algorithms():
         return provider.get_algorithms()
 
