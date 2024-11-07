@@ -2,15 +2,20 @@
   "version": "0.2",
   "language": "en",
   "words": [
+    "__pycache__",
+    "connexion",
     "dataframe",
     "DebiAI",
+    "fastapi",
     "imshow",
     "ipynb",
+    "jsonify",
     "numpy",
     "pypi",
     "pytest",
     "systemx",
-    "__pycache__"
+    "uvicorn",
+    "venv"
   ],
   "flagWords": [],
   "ignorePaths": [
@@ -24,6 +29,7 @@
     ".vscode/*",
     "requirements.txt",
     "__pycache__/",
-    "htmlcov/"
+    "htmlcov/",
+    "venv"
   ]
 }

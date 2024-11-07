@@ -1,13 +1,51 @@
 # Algo Provider Python module
+
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-<!-- 
 
-![Build](https://github.com/debiai/py-debiai/actions/workflows/python-publish.yml/badge.svg)
-![Test](https://github.com/debiai/py-debiai/actions/workflows/python-test.yml/badge.svg)
-[![Downloads](https://static.pepy.tech/badge/debiai)](https://pepy.tech/project/debiai)
+The Easy-Algo-Provider Python module allows you to easily create and deploy your own algorithm through the Algo Provider API.
 
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-[![Code style: flake8](https://img.shields.io/badge/code%20style-flake8-1c4a6c.svg)](https://flake8.pycqa.org/en/latest/)
+## What is an Algo Provider?
 
--->
-The Algo-Provider Python module is an interface that you can use directly in your Python project workflow to integrate algorithms to a given application (such as DebiAI).
+An Algo Provider is a service that provides algorithms to be used by different applications such as (DebiAI)[https://debiai.irt-systemx.fr/dashboard/algoProviders/] or any other application that uses the Algo Provider API.
+
+Creating an algo-provider requires to create a server, it requires some skills and a lot of time.
+
+The goal of this project is to create a new solution that makes it easier to start an algo-provider, without the need for Docker or advanced developer skills. The targets are Data Scientists that want to use their algorithms with DebiAI.
+
+## Getting started
+
+Install the module with pip:
+
+```bash
+pip install easy-algo-provider
+```
+
+Then, create a Python file with the following content:
+
+```python
+# First define your algorithm following a strict docstring format
+def my_algo1(input1: int, input2: int) -> int:
+    """
+    This is a simple algorithm that adds two numbers together.
+
+    Parameters:
+    input1 (int): The first number to add.
+    input2 (int): The second number to add.
+
+    Returns:
+    int: The sum of the two numbers.
+    """
+    return input1 + input2
+
+# Then create an AlgoProvider object and add your algorithm to it
+from easy_algo_provider import AlgoProvider
+provider = AlgoProvider()
+provider.add_algo(my_algo1)
+
+# Finally, start the server
+provider.start_server()
+```
+
+Run the Python file and your algorithm is now available through the Algo Provider API!
+
+The content of the docstring will be used to generate Algo descriptions in the DebiAI interface, and the function will be called with the parameters provided by the user. The return value will be sent back to the user and displayed in the DebiAI interface.
