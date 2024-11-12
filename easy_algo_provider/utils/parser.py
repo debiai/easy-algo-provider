@@ -1,6 +1,5 @@
 import inspect
 import re
-from easy_algo_provider.models.algorithm import Algorithm
 
 TYPE_MAPPING = {
     "int": "number",
