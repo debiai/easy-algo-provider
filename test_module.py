@@ -53,11 +53,11 @@ def my_algo_3(input1: int, input2: int) -> int:
 
 algo = provider.add_algo(
     my_algo_3,
-    author="Foo Bar",
+    author="DebiAI",
     version="1.0.0",
     creation_date="2024-01-01",
     update_date="2024-01-01",
-    tags=["tag1", "tag2"],
+    tags=["Math", "Addition"],
 )
 
 print(algo)

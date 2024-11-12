@@ -9,6 +9,7 @@ from rich.panel import Panel
 class AlgoProvider:
     def __init__(self):
         self.algorithms: Dict[str, Algorithm] = {}
+        self.algorithms_functions: Dict[str, Callable] = {}
 
     def add_algo(
         self,
@@ -35,7 +36,6 @@ class AlgoProvider:
         algo_metadata = extract_algorithm_metadata(func)
 
         algorithm = Algorithm(
-            func=func,
             **algo_metadata,
             tags=tags,
             author=author,
@@ -45,18 +45,37 @@ class AlgoProvider:
         )
 
         self.algorithms[algorithm.id] = algorithm
+        self.algorithms_functions[algorithm.id] = func
         return algorithm
 
     def get_algorithms(self) -> List[Algorithm]:
         return list(self.algorithms.values())
 
     def run_algorithm(self, algorithm_id: str, inputs: Dict):
+        # Verify if the algorithm exists
         if algorithm_id not in self.algorithms:
             raise ValueError(f"Algorithm '{algorithm_id}' not found.")
-        algorithm = self.algorithms[algorithm_id]
-        return algorithm.func(**inputs)
+
+        # Inputs Example:
+        # {
+        #     "inputs": [
+        #         {"name": "input1", "value": 12},
+        #         {"name": "input2", "value": 22},
+        #     ],
+        # }
+
+        # Transform this to a dictionary {input_name: input_value}
+        inputs = {input["name"]: input["value"] for input in inputs["inputs"]}
+
+        # Call the algorithm function
+        function = self.algorithms_functions[algorithm_id]
+        result = function(**inputs)
+
+        # Return the result
+        return [{"name": "result", "value": result}]
 
     def start_server(self, host="0.0.0.0", port=8000):
+        # Print the server information
         console = Console()
         console.print(
             Panel(
@@ -68,6 +87,7 @@ class AlgoProvider:
                 border_style="bold",
             )
         )
+
         # Print the creation message of each algorithm
         for algorithm in self.get_algorithms():
             algorithm.print_table()

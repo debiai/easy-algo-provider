@@ -29,8 +29,7 @@ def start_api_server(provider, host, port):
     @app.post("/algorithms/{algorithm_id}/run")
     def run_algorithm(algorithm_id: str, inputs: Dict[str, Any]):
         try:
-            result = provider.run_algorithm(algorithm_id, inputs)
-            return {"outputs": result}
+            return provider.run_algorithm(algorithm_id, inputs)
         except ValueError as e:
             raise HTTPException(status_code=400, detail=str(e))
 
