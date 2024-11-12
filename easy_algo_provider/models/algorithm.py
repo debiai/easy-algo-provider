@@ -3,6 +3,8 @@
 from typing import List, Optional, Union
 from pydantic import BaseModel, Field
 from datetime import date
+from rich.console import Console
+from rich.table import Table
 
 
 class DataValueInformation(BaseModel):
@@ -109,7 +111,7 @@ to identify the algorithm",
     author: Optional[str] = Field(
         None, description="The author of the algorithm", example="Ada Lovelace"
     )
-    creationDate: date = Field(
+    creationDate: Optional[date] = Field(
         ...,
         description="The creation date of the algorithm, ISO 8601 format, YYYY-MM-DD",
         example="2023-01-01",
@@ -119,7 +121,7 @@ to identify the algorithm",
         description="The last algorithm update date, ISO 8601 format, YYYY-MM-DD",
         example="2023-03-20",
     )
-    version: str = Field(
+    version: Optional[str] = Field(
         ..., description="The version of the algorithm", example="0.1.0"
     )
     inputs: List[InputOutputType] = Field(
@@ -128,3 +130,71 @@ to identify the algorithm",
     outputs: List[InputOutputType] = Field(
         ..., description="The list of outputs of the algorithm"
     )
+
+    def get_table(self):
+        # Algorithm Details
+        table = Table(width=80)
+        table.add_column(
+            self.id,
+            style="cyan",
+            no_wrap=True,
+            justify="right",
+            width=20,
+        )
+
+        table_title = ""
+        if self.name:
+            table_title += self.name
+        if self.version:
+            table_title += f" [blue][{self.version}][/blue]"
+
+        table.add_column(table_title, width=60)
+
+        if self.tags:
+            tags_text = ""
+            for tag in self.tags:
+                tags_text += f"[blue]⎣{tag}⎤[/blue] "
+            table.add_row("Tags:", tags_text + "\n")
+        if self.description:
+            table.add_row("Description:", self.description)
+        if self.author:
+            table.add_row("Author:", self.author)
+        if self.creationDate:
+            table.add_row("Creation Date:", str(self.creationDate))
+        if self.updateDate:
+            table.add_row("Update Date:", str(self.updateDate))
+
+        # Inputs
+        if self.inputs:
+            for input in self.inputs:
+                table.add_row(
+                    f"[bold green]{input.name}[/bold green]",
+                    f"[bold blue]{input.type}[/bold blue] "
+                    + f"[italic]{input.description}[/italic]",
+                )
+
+        # Outputs
+        if self.outputs:
+            for output in self.outputs:
+                table.add_row(
+                    f"[bold magenta]{output.name}[/bold magenta]",
+                    f"[bold blue]{output.type}[/bold blue] "
+                    + f"[italic]{output.description}[/italic]",
+                )
+
+        return table
+
+    def print_table(self):
+        console = Console()
+        console.print(self.get_table())
+
+    def __str__(self):
+        from io import StringIO
+
+        # Display the table, capture the output and return it as a string
+        console = Console()
+        with StringIO() as buffer:
+            # Render the table to the buffer
+            console.print(self.get_table())
+            # Return the buffer contents as a string
+            return buffer.getvalue()
