@@ -1,5 +1,6 @@
 from easy_algo_provider import AlgoProvider
 
+
 provider = AlgoProvider()
 
 
@@ -50,7 +51,7 @@ def my_algo_3(input1: int, input2: int) -> int:
     return input1 + input2
 
 
-provider.add_algo(
+algo = provider.add_algo(
     my_algo_3,
     author="Foo Bar",
     version="1.0.0",
@@ -59,5 +60,6 @@ provider.add_algo(
     tags=["tag1", "tag2"],
 )
 
+print(algo)
 
 provider.start_server()

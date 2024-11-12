@@ -131,7 +131,7 @@ to identify the algorithm",
         ..., description="The list of outputs of the algorithm"
     )
 
-    def print_creation_message(self):
+    def get_table(self):
         # Algorithm Details
         table = Table(width=80)
         table.add_column(
@@ -182,6 +182,19 @@ to identify the algorithm",
                     + f"[italic]{output.description}[/italic]",
                 )
 
-        console = Console()
+        return table
 
-        console.print(table)
+    def print_table(self):
+        console = Console()
+        console.print(self.get_table())
+
+    def __str__(self):
+        from io import StringIO
+
+        # Display the table, capture the output and return it as a string
+        console = Console()
+        with StringIO() as buffer:
+            # Render the table to the buffer
+            console.print(self.get_table())
+            # Return the buffer contents as a string
+            return buffer.getvalue()

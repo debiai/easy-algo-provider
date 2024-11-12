@@ -70,6 +70,6 @@ class AlgoProvider:
         )
         # Print the creation message of each algorithm
         for algorithm in self.get_algorithms():
-            algorithm.print_creation_message()
+            algorithm.print_table()
 
         start_api_server(self, host, port)
