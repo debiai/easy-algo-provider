@@ -1,5 +1,7 @@
 # Build and packaging
 *.egg-info/
+build/
+dist/
 
 # Ignore all __pycache__ directories
 __pycache__/    
