@@ -1,4 +1,4 @@
-APP_VERSION = "1.0.1"
+APP_VERSION = "1.0.2"
 
 
 def start_api_server(provider, host, port):

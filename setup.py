@@ -13,7 +13,7 @@ setup(
  interface it DebiAI or something else",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/debiai/eaty-algo-provider",
+    url="https://github.com/debiai/easy-algo-provider",
     packages=find_packages(),
     python_requires=">=3.7",
     install_requires=[
