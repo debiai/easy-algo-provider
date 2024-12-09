@@ -2,7 +2,7 @@
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-The Easy-Algo-Provider Python module allows you to easily create and deploy your own algorithm through the Algo Provider API.
+This Algo-Provider Python module allows you to easily deploy your own algorithm through the Algo Provider API.
 
 ## What is an Algo Provider?
 
@@ -29,11 +29,11 @@ def my_algo1(input1: int, input2: int) -> int:
     This is a simple algorithm that adds two numbers together.
 
     Parameters:
-    input1 (int): The first number to add.
-    input2 (int): The second number to add.
+        input1 (int): The first number to add.
+        input2 (int): The second number to add.
 
     Returns:
-    int: The sum of the two numbers.
+        int: The sum of the two numbers.
     """
     return input1 + input2
 
@@ -49,3 +49,18 @@ provider.start_server()
 Run the Python file and your algorithm is now available through the Algo Provider API!
 
 The content of the docstring will be used to generate Algo descriptions in the DebiAI interface, and the function will be called with the parameters provided by the user. The return value will be sent back to the user and displayed in the DebiAI interface.
+
+## Parameters
+
+You can specify the following parameters when adding an algorithm:
+
+```python
+provider.add_algo(
+    my_algo_3,
+    author="DebiAI",
+    version="1.0.0",
+    creation_date="2024-01-01",
+    update_date="2024-01-01",
+    tags=["Math", "Addition"],
+)
+```

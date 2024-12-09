@@ -1,7 +1,7 @@
 from typing import Callable, List, Dict, Optional
-from easy_algo_provider.utils.parser import extract_algorithm_metadata
-from easy_algo_provider.models.algorithm import Algorithm
-from easy_algo_provider.app import start_api_server
+from algo_provider.utils.parser import extract_algorithm_metadata
+from algo_provider.models.algorithm import Algorithm
+from algo_provider.app import start_api_server
 from rich.console import Console
 from rich.panel import Panel
 

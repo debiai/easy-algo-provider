@@ -1,4 +1,4 @@
-from easy_algo_provider import AlgoProvider
+from algo_provider import AlgoProvider
 
 
 provider = AlgoProvider()
