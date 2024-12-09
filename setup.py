@@ -9,7 +9,8 @@ with open("README.md", "r", encoding="utf-8") as fh:
 setup(
     name="algo-provider",
     version=APP_VERSION,
-    description="Start your own Algo provider from a Python function, interface it DebiAI or something else",
+    description="Start your own Algo provider from a Python function,\
+ interface it DebiAI or something else",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/debiai/eaty-algo-provider",
