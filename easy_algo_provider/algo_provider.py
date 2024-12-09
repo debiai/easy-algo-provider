@@ -68,8 +68,26 @@ class AlgoProvider:
         inputs = {input["name"]: input["value"] for input in inputs["inputs"]}
 
         # Call the algorithm function
-        function = self.algorithms_functions[algorithm_id]
-        result = function(**inputs)
+        try:
+            function = self.algorithms_functions[algorithm_id]
+            result = function(**inputs)
+        except Exception as e:
+            # Print the error message
+            error_message = f"[bold red]Error running algorithm \
+ '{algorithm_id}':\n{str(e)}[/bold red]"
+            console = Console()
+            console.print(
+                Panel(
+                    error_message,
+                    title="[bold red]Error[/bold red]",
+                    width=80,
+                    border_style="bold",
+                    style="red",
+                )
+            )
+
+            # Raise the error
+            raise ValueError(str(e))
 
         # Return the result
         return [{"name": "result", "value": result}]
