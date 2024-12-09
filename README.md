@@ -17,7 +17,7 @@ The goal of this project is to create a new solution that makes it easier to sta
 Install the module with pip:
 
 ```bash
-pip install easy-algo-provider
+pip install algo-provider
 ```
 
 Then, create a Python file with the following content:
@@ -38,7 +38,7 @@ def my_algo1(input1: int, input2: int) -> int:
     return input1 + input2
 
 # Then create an AlgoProvider object and add your algorithm to it
-from easy_algo_provider import AlgoProvider
+from algo_provider import AlgoProvider
 provider = AlgoProvider()
 provider.add_algo(my_algo1)
 
@@ -47,6 +47,8 @@ provider.start_server()
 ```
 
 Run the Python file and your algorithm is now available through the Algo Provider API!
+
+![Expected output](./result.png)
 
 The content of the docstring will be used to generate Algo descriptions in the DebiAI interface, and the function will be called with the parameters provided by the user. The return value will be sent back to the user and displayed in the DebiAI interface.
 
