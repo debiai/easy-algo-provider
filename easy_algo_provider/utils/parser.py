@@ -6,6 +6,7 @@ TYPE_MAPPING = {
     "float": "number",
     "str": "string",
     "bool": "boolean",
+    "list": "array",
     "Any": "any",
 }
 
@@ -76,18 +77,28 @@ def extract_algorithm_metadata(function):
                     param.annotation.__name__, param.annotation.__name__
                 )
             else:
-                param_type = "Any"
+                param_type = "any"
 
         # Input
         input_metadata = {
             "name": param_name,
             "description": param_data.get("description", ""),
             "type": param_type,
-            "default": (
-                param.default if param.default != inspect.Parameter.empty else None
-            ),
         }
 
+        # Array type
+        if param_type == "array" and hasattr(param.annotation, "__args__"):
+            array_type = TYPE_MAPPING.get(
+                param.annotation.__args__[0].__name__,
+                param.annotation.__args__[0].__name__,
+            )
+            input_metadata["arrayType"] = array_type
+
+        # Add default value
+        if param.default != inspect.Parameter.empty:
+            input_metadata["default"] = param.default
+
+        # Add to the inputs list
         algorithm_metadata["inputs"].append(input_metadata)
 
     # Output
@@ -95,9 +106,9 @@ def extract_algorithm_metadata(function):
         return_type = TYPE_MAPPING.get(return_details["type"], return_details["type"])
     else:
         return_type = (
-            TYPE_MAPPING.get(str(signature.return_annotation.__name__), "Any")
+            TYPE_MAPPING.get(str(signature.return_annotation.__name__), "any")
             if signature.return_annotation != inspect.Signature.empty
-            else "Any"
+            else "any"
         )
 
     if return_details["description"]:

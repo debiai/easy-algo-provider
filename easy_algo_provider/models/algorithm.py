@@ -167,10 +167,17 @@ to identify the algorithm",
         # Inputs
         if self.inputs:
             for input in self.inputs:
+                input_text = f"[bold blue]{input.type}[/bold blue]"
+                if input.type == "array" and hasattr(input, "arrayType"):
+                    input_text += f"[blue][[italic]{input.arrayType}[/italic]][/blue] "
+                else:
+                    input_text += " "
+
+                input_text += f"[italic]{input.description}[/italic]"
+
                 table.add_row(
                     f"[bold green]{input.name}[/bold green]",
-                    f"[bold blue]{input.type}[/bold blue] "
-                    + f"[italic]{input.description}[/italic]",
+                    input_text,
                 )
 
         # Outputs

@@ -73,8 +73,8 @@ class AlgoProvider:
             result = function(**inputs)
         except Exception as e:
             # Print the error message
-            error_message = f"[bold red]Error running algorithm\
- '{algorithm_id}': {str(e)}[/bold red]"
+            error_message = f"[bold red]Error running algorithm \
+ '{algorithm_id}':\n{str(e)}[/bold red]"
             console = Console()
             console.print(
                 Panel(
@@ -87,7 +87,7 @@ class AlgoProvider:
             )
 
             # Raise the error
-            raise ValueError(f"Error running algorithm '{str(e)}")
+            raise ValueError(str(e))
 
         # Return the result
         return [{"name": "result", "value": result}]
