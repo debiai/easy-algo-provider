@@ -5,7 +5,7 @@ def start_api_server(provider, host, port):
     import uvicorn
     from fastapi import FastAPI, HTTPException
     from typing import List, Dict, Any
-    from easy_algo_provider.models.algorithm import Algorithm
+    from algo_provider.models.algorithm import Algorithm
     from fastapi.middleware.cors import CORSMiddleware
 
     app = FastAPI(
