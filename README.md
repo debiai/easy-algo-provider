@@ -6,7 +6,7 @@ This Algo-Provider Python module allows you to easily deploy your own algorithm 
 
 ## What is an Algo Provider?
 
-An Algo Provider is a service that provides algorithms to be used by different applications such as (DebiAI)[https://debiai.irt-systemx.fr/dashboard/algoProviders/] or any other application that uses the Algo Provider API.
+An Algo Provider is a service that provides algorithms to be used by different applications such as [DebiAI](https://debiai.irt-systemx.fr/dashboard/algoProviders/) or any other application that uses the Algo Provider API.
 
 Creating an algo-provider requires to create a server, it requires some skills and a lot of time.
 
